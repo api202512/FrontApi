@@ -42,8 +42,8 @@ export default function AdminPanel() {
         <tbody>
           {registros.map((r, i) => (
             <tr key={i} style={{ borderBottom: '1px solid #ccc' }}>
-              <td style={tdStyle}>{r.usuario?.nombre || 'Sin nombre'}</td>
-              <td style={tdStyle}>{r.usuario?.email || 'N/A'}</td>
+              <td style={tdStyle}>{r.userId?.nombre || 'Sin nombre'}</td>
+              <td style={tdStyle}>{r.userId?.email || 'N/A'}</td>
               <td style={tdStyle}>{r.apiKey}</td>
               <td style={tdStyle}>{r.endpoint}</td>
               <td style={tdStyle}>{new Date(r.fecha).toLocaleString()}</td>
