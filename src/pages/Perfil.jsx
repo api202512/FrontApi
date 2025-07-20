@@ -12,7 +12,10 @@ export default function Perfil() {
   if (!token) return navigate('/login');
 
   fetch('http://localhost:3000/api/apikey', {
-    headers: { Authorization: `Bearer ${token}` }
+    headers: { 
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}` 
+    }
   })
     .then(res => res.json())
     .then(data => {
