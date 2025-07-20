@@ -1,4 +1,3 @@
-// pages/ApiKeyWeb.jsx
 import React, { useState } from 'react';
 
 export default function ApiKeyWeb() {

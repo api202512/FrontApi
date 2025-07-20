@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminPanel() {
   const [registros, setRegistros] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+
+    if (!token) return navigate('/login');
 
     fetch('http://localhost:3000/api/api-uso', {
       headers: {
@@ -22,12 +26,40 @@ export default function AdminPanel() {
       .then((data) => setRegistros(data))
       .catch((err) => alert(err.message))
       .finally(() => setLoading(false));
-  }, []);
+  }, [navigate]);
+
+  const handleLogout = () => {
+    console.log('🚪 Cerrando sesión desde admin panel...');
+    
+    localStorage.removeItem('token');
+    
+    console.log('✅ Sesión cerrada');
+
+    navigate('/login');
+  };
 
   if (loading) return <p>Cargando registros...</p>;
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '2rem', position: 'relative' }}>
+      <button 
+        onClick={handleLogout}
+        style={{ 
+          position: 'absolute',
+          top: '10px',
+          right: '10px',
+          padding: '6px 12px',
+          borderRadius: '4px',
+          background: '#dc3545',
+          color: '#fff',
+          border: 'none',
+          cursor: 'pointer',
+          fontSize: '12px'
+        }}
+      >
+        Cerrar Sesión
+      </button>
+
       <h2>Panel de Administrador - Registros de Uso de API Keys</h2>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
