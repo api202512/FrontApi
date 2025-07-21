@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -10,11 +11,17 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://localhost:3000/api/login/login', {
+      /*const res = await fetch('http://localhost:3000/api/login/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
-      });
+      });*/
+
+      const res = api.get('/login/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
 
       const data = await res.json();
 

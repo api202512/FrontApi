@@ -1,6 +1,7 @@
 // src/pages/Perfil.js
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../api';
 
 export default function Perfil() {
   const [apiKey, setApiKey] = useState('');
@@ -13,12 +14,20 @@ export default function Perfil() {
 
     if (!token) return navigate('/login');
 
+    
     // Obtener o generar API key
-    fetch('http://localhost:3000/api/apikey', {
+    /*fetch('http://localhost:3000/api/apikey', {
       headers: { 
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}` 
       }
+    })*/
+
+    api.get('/apikey', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then(res => res.json())
       .then(data => {
