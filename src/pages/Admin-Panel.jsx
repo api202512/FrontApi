@@ -11,7 +11,7 @@ export default function AdminPanel() {
 
     if (!token) return navigate('/login');
 
-     fetch('http://localhost:3000/api/api-uso', {
+     fetch('https://api-production-b7db.up.railway.app/api/api-uso', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
