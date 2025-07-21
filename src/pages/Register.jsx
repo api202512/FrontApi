@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -11,7 +10,7 @@ export default function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    /*const res = await fetch('http://localhost:3000/api/login/registro', {
+    const res = await fetch('http://localhost:3000/api/login/registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -20,18 +19,7 @@ export default function Register() {
         password,
         rol, 
       })
-    });*/
-
-    const res = api.get('/login/registro', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nombre,
-        email,
-        password,
-        rol, 
-      })
-    })
+    });
 
     const data = await res.json();
     if (!res.ok) return alert(data.message || 'Error');

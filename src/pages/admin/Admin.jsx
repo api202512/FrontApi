@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../api';
 
 export default function Admin() {
   const navigate = useNavigate();
@@ -14,17 +13,11 @@ export default function Admin() {
     e.preventDefault();
 
     try {
-      /*const res = await fetch('http://localhost:3000/api/login/crear-admin', {
+      const res = await fetch('http://localhost:3000/api/login/crear-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, email, password, claveSecreta, rol }),
-      });*/
-
-      const res = api.get('/login/crear-admin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, email, password, claveSecreta, rol }),
-    })
+      });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Error al crear admin');

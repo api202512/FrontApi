@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../api';
 
 export default function AdminPanel() {
   const [registros, setRegistros] = useState([]);
@@ -12,12 +11,7 @@ export default function AdminPanel() {
 
     if (!token) return navigate('/login');
 
-     /*fetch('http://localhost:3000/api/api-uso', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })*/
-    api.get('/api-uso', {
+     fetch('http://localhost:3000/api/api-uso', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

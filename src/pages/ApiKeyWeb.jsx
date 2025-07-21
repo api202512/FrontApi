@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import api from '../api';
 
 export default function ApiKeyWeb() {
   const [apiKey, setApiKey] = useState('');
@@ -8,16 +7,11 @@ export default function ApiKeyWeb() {
 
   const fetchData = async (endpoint) => {
     try {
-      /*const res = await fetch(`http://localhost:3000/api/${endpoint}`, {
+      const res = await fetch(`http://localhost:3000/api/${endpoint}`, {
         headers: {
           'x-api-key': apiKey,
         },
-      });*/
-      const res = api.get(`/${endpoint}`, {
-        headers: {
-          'x-api-key': apiKey,
-        },
-      })
+      });
 
       if (!res.ok) {
         const err = await res.json();
