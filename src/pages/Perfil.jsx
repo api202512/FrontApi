@@ -14,7 +14,7 @@ export default function Perfil() {
     if (!token) return navigate('/login');
 
     // Obtener o generar API key
-    fetch('https://api-production-b7db.up.railway.app/api/apikey', {
+    fetch('https://api-production-db94.up.railway.app/apikey', {
       headers: { 
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}` 
