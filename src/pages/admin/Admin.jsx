@@ -13,7 +13,7 @@ export default function Admin() {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://api-production-db94.up.railway.app/login/crear-admin', {
+      const res = await fetch('https://api-production-db94.up.railway.app/api/login/crear-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, email, password, claveSecreta, rol }),

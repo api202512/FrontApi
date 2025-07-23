@@ -10,7 +10,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://api-production-db94.up.railway.app/login/login', {
+      const res = await fetch('https://api-production-db94.up.railway.app/api/login/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
