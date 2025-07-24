@@ -12,6 +12,12 @@ export default function Admin() {
   const crearAdmin = async (e) => {
     e.preventDefault();
 
+    const correoValido = /^[a-zA-Z0-9._%+-]+@uthh\.edu\.mx$/;
+
+    if (!correoValido.test(email)) {
+      return alert('Solo se permiten correos institucionales');
+    }
+
     try {
       const res = await fetch('https://api-production-1ea4.up.railway.app/login/crear-admin', {
         method: 'POST',
@@ -34,7 +40,7 @@ export default function Admin() {
     <form onSubmit={crearAdmin} className="form">
       <h2>Crear Administrador</h2>
       <input placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      <input placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} type='email'/>
       <input placeholder="Contraseña" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       <input placeholder="Clave secreta" value={claveSecreta} onChange={(e) => setClaveSecreta(e.target.value)} />
       <button type="submit">Crear Admin</button>
