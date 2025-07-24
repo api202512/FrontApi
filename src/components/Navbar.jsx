@@ -12,8 +12,16 @@ export default function Navbar() {
       <ul className="nav-links">
         <li><Link to="/">Inicio</Link></li>
 
-        {!isOnRegister && <li><Link to="/registro">Registro</Link>}</li>
-        {!isOnLogin && <li><Link to="/login">Iniciar Sesión</Link>}</li>
+        {!isOnRegister && (
+          <li>
+            <Link to="/registro">Registro</Link>
+          </li>
+        )}
+        {!isOnLogin && (
+          <li>
+            <Link to="/login">Iniciar Sesión</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
