@@ -1,28 +1,30 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const location = useLocation();
+
+  const hideNavRoutes = ['/perfil', '/admin-panel'];
+  
+  if (hideNavRoutes.includes(location.pathname)) {
+    return null;
+  }
 
   const isOnRegister = location.pathname === '/registro';
   const isOnLogin = location.pathname === '/login';
 
   return (
     <nav className="navbar">
-      <div className="logo">EduAPI</div>
-      <ul className="nav-links">
-        <li><Link to="/">Inicio</Link></li>
-
+      <h2>EduAPI</h2>
+      <div>
+        <Link to="/">Inicio</Link>
         {!isOnRegister && (
-          <li>
             <Link to="/registro">Registro</Link>
-          </li>
         )}
         {!isOnLogin && (
-          <li>
             <Link to="/login">Iniciar Sesión</Link>
-          </li>
         )}
-      </ul>
+      </div>
     </nav>
   );
 }
