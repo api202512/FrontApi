@@ -14,7 +14,7 @@ export default function Perfil() {
     if (!token) return navigate('/login');
 
     // Obtener o generar API key
-    fetch('https://api-production-1ea4.up.railway.app/apikey', {
+    fetch('https://api-yuu7.onrender.com/apikey', {
       headers: { 
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}` 

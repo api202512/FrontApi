@@ -16,7 +16,7 @@ export default function Register() {
       return alert('Solo se permiten correos institucionales');
     }
     e.preventDefault();
-    const res = await fetch('https://api-production-1ea4.up.railway.app/login/registro', {
+    const res = await fetch('https://api-yuu7.onrender.com/login/registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -7,7 +7,7 @@ export default function ApiKeyWeb() {
 
   const fetchData = async (endpoint) => {
     try {
-      const res = await fetch(`https://api-production-1ea4.up.railway.app/${endpoint}`, {
+      const res = await fetch(`https://api-yuu7.onrender.com/${endpoint}`, {
         headers: {
           'x-api-key': apiKey,
         },
