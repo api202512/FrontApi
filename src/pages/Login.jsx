@@ -10,7 +10,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://api-yuu7.onrender.com/login/login', {
+      const res = await fetch('https://backapi-jnqq.onrender.com/login/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),

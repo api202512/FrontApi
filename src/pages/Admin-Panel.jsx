@@ -11,7 +11,7 @@ export default function AdminPanel() {
 
     if (!token) return navigate('/login');
 
-     fetch('https://api-yuu7.onrender.com/api-uso', {
+     fetch('https://backapi-jnqq.onrender.com/api-uso', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

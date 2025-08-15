@@ -19,7 +19,7 @@ export default function Admin() {
     }
 
     try {
-      const res = await fetch('https://api-yuu7.onrender.com/login/crear-admin', {
+      const res = await fetch('https://backapi-jnqq.onrender.com/login/crear-admin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, email, password, claveSecreta, rol }),

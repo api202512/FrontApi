@@ -7,7 +7,7 @@ export default function ApiKeyWeb() {
 
   const fetchData = async (endpoint) => {
     try {
-      const res = await fetch(`https://api-yuu7.onrender.com/${endpoint}`, {
+      const res = await fetch(`https://backapi-jnqq.onrender.com/${endpoint}`, {
         headers: {
           'x-api-key': apiKey,
         },
